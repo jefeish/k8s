@@ -1,0 +1,13 @@
+name: thumbnail-action
+on:
+  push:
+    branches:
+      - main
+jobs:
+  create-thumbnail-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: create thumbnail readme.md
+        run: utils/generate-images-md.sh -p diagrams -o ./README.md
